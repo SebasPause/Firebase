@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="93dp"
+        android:layout_marginTop="24dp"
+        android:ems="30"
+        android:text="INICIO"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <EditText
+        android:id="@+id/edCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="108dp"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edCorreo"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:hint="Contrasena"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edContrasena"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginTop="118dp">
+
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:text="Registrar" />
+
+        <Button
+            android:id="@+id/btnIniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar"
+            android:layout_marginLeft="50dp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
