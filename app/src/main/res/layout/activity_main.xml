@@ -66,5 +66,15 @@
             android:layout_marginLeft="50dp"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/olvidarContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edContrasena"
+        android:layout_marginTop="40dp"
+        android:text="¿Has olvidado tu contraseña?"
+        android:textColor="#FF0000"
+        android:layout_marginLeft="100dp"/>
+
 
 </RelativeLayout>

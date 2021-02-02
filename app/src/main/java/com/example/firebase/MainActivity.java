@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button btnRegistrar,btnIniciar;
     EditText edCorreo,edContrasena;
+    TextView olvidarContra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnIniciar = (Button)findViewById(R.id.btnIniciar);
         edCorreo = (EditText)findViewById(R.id.edCorreo);
         edContrasena = (EditText)findViewById(R.id.edContrasena);
+        olvidarContra = (TextView)findViewById(R.id.olvidarContra);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        olvidarContra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(MainActivity.this,OlvidarContrasena.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
