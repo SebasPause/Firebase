@@ -36,26 +36,8 @@ public class MainActivity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(edCorreo.getText().toString(),edContrasena.getText().toString())
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.i("Resultado task:",task.isSuccessful()+"");
-                                Log.w("Mal","createUserWithEmail:failure",task.getException());
-
-                                if(task.isSuccessful()){
-                                    Intent intent = new Intent(MainActivity.this,MainActivity.class);
-                                    intent.putExtra("email",task.getResult().getUser().getEmail());
-                                    startActivity(intent);
-                                } else {
-                                    android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MainActivity.this);
-                                    builder.setTitle("Error");
-                                    builder.setMessage("Se ha producido un error: "+task.getException());
-                                    builder.setPositiveButton("Aceptar",null);
-                                    builder.create().show();
-                                }
-                            }
-                        });
+                Intent intent =  new Intent(MainActivity.this,Registrar.class);
+                startActivity(intent);
             }
         });
 
@@ -63,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(edCorreo.getText().toString(),edContrasena.getText().toString())
+                if (edCorreo.getText().toString().isEmpty() || edContrasena.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Introduce correo y/o contraseña", Toast.LENGTH_SHORT).show();
+                } else {
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(edCorreo.getText().toString(), edContrasena.getText().toString())
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -72,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("TAG", "signInWithCustomToken:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
-                                    Intent intent = new Intent(MainActivity.this,Logueado.class);
-                                    intent.putExtra("email",task.getResult().getUser().getEmail());
+                                    Intent intent = new Intent(MainActivity.this, Logueado.class);
+                                    intent.putExtra("email", task.getResult().getUser().getEmail());
                                     startActivity(intent);
 
                                 } else {
@@ -85,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+                }
             }
         });
 

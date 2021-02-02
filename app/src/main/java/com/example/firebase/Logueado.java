@@ -2,6 +2,7 @@ package com.example.firebase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,12 @@ public class Logueado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(Logueado.this,MainActivity.class);
+                startActivity(intent);
             }
         });
+
+
 
     }
 

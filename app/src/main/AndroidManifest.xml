@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Logueado"></activity>
+        <activity android:name=".Registrar"></activity>
+        <activity android:name=".Logueado" />
         <activity android:name=".Registro" />
         <activity android:name=".MainActivity">
             <intent-filter>
